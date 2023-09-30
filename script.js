@@ -5,7 +5,6 @@ let tokens = [
     ...Array(100).fill(160),
     ...Array(47).fill(200),
     ...Array(2).fill(320),
-    120,
     280,
 ];
 let currentIndex = 0;
