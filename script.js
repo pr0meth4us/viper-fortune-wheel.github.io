@@ -1,9 +1,9 @@
 let container = document.querySelector(".container");
 let btn = document.getElementById("spin");
 let tokens = [
-    ...Array(150).fill(240),
+    ...Array(170).fill(240),
     ...Array(100).fill(160),
-    ...Array(47).fill(200),
+    ...Array(80).fill(200),
     ...Array(2).fill(320),
     280,
 ];
