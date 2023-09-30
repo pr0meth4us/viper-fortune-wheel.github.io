@@ -1,11 +1,17 @@
 let container = document.querySelector(".container");
 let btn = document.getElementById("spin");
 let tokens = [
-    ...Array(170).fill(240),
-    ...Array(100).fill(160),
-    ...Array(200).fill(200),
-    ...Array(2).fill(320),
-    280,
+    ...Array(130).fill(240), //10
+    ...Array(40).fill(0),//10
+    ...Array(40).fill(69),//10
+    ...Array(100).fill(160), //20
+    ...Array(100).fill(200), //try
+    ...Array(50).fill(17),//try
+    ...Array(50).fill(570),//try
+    ...Array(50).fill(19), //try
+    ...Array(2).fill(320),//50
+    280,//tee
+    80,//90
 ];
 let currentIndex = 0;
 
@@ -36,10 +42,10 @@ btn.addEventListener("click", () => {
 
         currentIndex++; // Move to the next token
 
-        if (currentIndex === tokens.length && tokens[0] === 200) {
+        if (currentIndex === tokens.length && tokens[0] === 200 && tokens[0] === 19&& tokens[0] === 17 && token !== 570) {
             currentIndex = 0; // Reset currentIndex after all tokens have been rotated
         }
-        if (token !== 200) {
+        if (token !== 200 && token !== 19 && token !== 17 && token !== 570) {
             btn.remove(); // Reset currentIndex after all tokens have been rotated
 
         }
