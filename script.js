@@ -1,6 +1,7 @@
 let container = document.querySelector(".container");
 let btn = document.getElementById("spin");
 let tokens = [
+    ...Array(150).fill(240),
     ...Array(100).fill(160),
     ...Array(47).fill(200),
     ...Array(2).fill(320),
@@ -32,7 +33,6 @@ btn.addEventListener("click", () => {
 
         if (number >= max) {
             number = Math.floor(Math.random() * 129600) * 360 + 360 + token;
-            console.log("3", number);
         }
 
         currentIndex++; // Move to the next token
