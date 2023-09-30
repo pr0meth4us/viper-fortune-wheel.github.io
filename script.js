@@ -25,14 +25,11 @@ btn.addEventListener("click", () => {
     if (currentIndex < tokens.length) {
         let token = tokens[currentIndex];
         let number = token + Math.floor(Math.random() * 129600) * 360 + 360 + token;
-        console.log("0", token);
         let max = 720;
-        console.log("1", number);
 
         container.style.transform = `rotate(${number}deg)`;
 
         number += Math.floor(Math.random() * 129600) * 360 + 360 + token;
-        console.log("2", number);
 
         if (number >= max) {
             number = Math.floor(Math.random() * 129600) * 360 + 360 + token;
