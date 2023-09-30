@@ -3,7 +3,7 @@ let btn = document.getElementById("spin");
 let tokens = [
     ...Array(170).fill(240),
     ...Array(100).fill(160),
-    ...Array(80).fill(200),
+    ...Array(200).fill(200),
     ...Array(2).fill(320),
     280,
 ];
