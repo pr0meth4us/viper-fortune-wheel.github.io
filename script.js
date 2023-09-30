@@ -1,6 +1,12 @@
 let container = document.querySelector(".container");
 let btn = document.getElementById("spin");
-let tokens = [240, 160, 200, 40, 80, 120, 280, 320];
+let tokens = [
+    ...Array(100).fill(160),
+    ...Array(47).fill(200),
+    ...Array(2).fill(320),
+    120,
+    280,
+];
 let currentIndex = 0;
 
 // Function to shuffle the tokens array randomly
