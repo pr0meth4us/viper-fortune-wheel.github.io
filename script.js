@@ -1,17 +1,17 @@
 let container = document.querySelector(".container");
 let btn = document.getElementById("spin");
 let tokens = [
-    ...Array(130).fill(240), //10
-    ...Array(40).fill(0),//10
-    ...Array(40).fill(69),//10
-    ...Array(100).fill(160), //20
-    ...Array(100).fill(200), //try
-    ...Array(50).fill(17),//try
-    ...Array(50).fill(570),//try
-    ...Array(50).fill(19), //try
-    ...Array(2).fill(320),//50
-    280,//tee
-    80,//90
+    ...Array(130).fill(240),
+    ...Array(40).fill(0),
+    ...Array(40).fill(69),
+    ...Array(100).fill(160),
+    ...Array(100).fill(200),
+    ...Array(50).fill(17),
+    ...Array(50).fill(570),
+    ...Array(50).fill(19),
+    ...Array(2).fill(320),
+    280,
+    80,
 ];
 let currentIndex = 0;
 
