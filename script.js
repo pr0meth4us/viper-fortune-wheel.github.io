@@ -16,7 +16,6 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
-
 btn.addEventListener("click", () => {
     if (currentIndex === 0) {
         shuffleArray(tokens); // Shuffle tokens when starting a new rotation
@@ -38,8 +37,13 @@ btn.addEventListener("click", () => {
 
         currentIndex++; // Move to the next token
 
-        if (currentIndex === tokens.length) {
+        if (currentIndex === tokens.length && tokens[0] === 200) {
             currentIndex = 0; // Reset currentIndex after all tokens have been rotated
         }
+        if (token !== 200) {
+            btn.remove(); // Reset currentIndex after all tokens have been rotated
+
+        }
+
     }
 });
