@@ -49,6 +49,7 @@ btn.addEventListener("click", () => {
             btn.remove(); // Reset currentIndex after all tokens have been rotated
 
         }
+     
 
     }
 });
