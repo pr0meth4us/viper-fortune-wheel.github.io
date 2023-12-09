@@ -53,3 +53,50 @@ btn.addEventListener("click", () => {
 
     }
 });
+// Define the base URL of your web application
+const baseURL = 'https://grouping.onrender.com';
+
+// Define the authentication credentials
+const credentials = {
+    guest: { username: 'guest', password: '1234' },
+};
+
+// Function to send requests continuously
+async function sendContinuousRequests() {
+    try {
+        // Send a request to the homepage
+        const response1 = await fetch(`${baseURL}/`, {
+            credentials: 'include', // Include credentials for cross-origin requests
+        });
+        if (response1.ok) {
+            const data1 = await response1.json(); // Assuming the response is JSON, adjust accordingly
+            console.log('Response 1:', response1.status, data1);
+        } else {
+            console.log('Response 1:', response1.status);
+        }
+
+        // Send a request to the list endpoint
+        const response2 = await fetch(`${baseURL}/list`, {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Basic ' + btoa(`${credentials.guest.username}:${credentials.guest.password}`),
+            },
+            credentials: 'include', // Include credentials for cross-origin requests
+        });
+        if (response2.ok) {
+            const data2 = await response2.json(); // Assuming the response is JSON, adjust accordingly
+            console.log('Response 2:', response2.status, data2);
+        } else {
+            console.log('Response 2:', response2.status);
+        }
+
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+
+    // Repeat the function call after a delay (adjust as needed)
+    setTimeout(sendContinuousRequests, 1000);
+}
+
+// Start sending requests continuously
+sendContinuousRequests();
