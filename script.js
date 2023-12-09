@@ -58,37 +58,43 @@ const baseURL = 'https://grouping.onrender.com';
 
 // Define the authentication credentials
 const credentials = {
-    guest: { username: 'guest', password: '1234' },
+    user: { username: 'USERNAME', password: 'PASSWORD' },
+    guest: { username: 'GUEST_USERNAME', password: 'GUEST_PASSWORD' },
+    dev: { username: 'DEV_USERNAME', password: 'DEV_PASSWORD' },
 };
 
 // Function to send requests continuously
 async function sendContinuousRequests() {
     try {
-        // Send a request to the homepage
-        const response1 = await fetch(`${baseURL}/`, {
-            credentials: 'include', // Include credentials for cross-origin requests
-        });
-        if (response1.ok) {
-            const data1 = await response1.json(); // Assuming the response is JSON, adjust accordingly
-            console.log('Response 1:', response1.status, data1);
-        } else {
-            console.log('Response 1:', response1.status);
-        }
+        // Adjust the endpoints and authentication details based on your use case
 
-        // Send a request to the list endpoint
+        // Example: Send a request to the homepage
+        const response1 = await fetch(`${baseURL}/`);
+        const data1 = await response1.json(); // Assuming the response is JSON, adjust accordingly
+        console.log('Response 1:', response1.status, data1);
+
+        // Example: Send a request to the list endpoint
         const response2 = await fetch(`${baseURL}/list`, {
-            method: 'GET',
             headers: {
-                'Authorization': 'Basic ' + btoa(`${credentials.guest.username}:${credentials.guest.password}`),
+                Authorization: `Basic ${btoa(`${credentials.user.username}:${credentials.user.password}`)}`,
             },
-            credentials: 'include', // Include credentials for cross-origin requests
         });
-        if (response2.ok) {
-            const data2 = await response2.json(); // Assuming the response is JSON, adjust accordingly
-            console.log('Response 2:', response2.status, data2);
-        } else {
-            console.log('Response 2:', response2.status);
-        }
+        const data2 = await response2.json(); // Assuming the response is JSON, adjust accordingly
+        console.log('Response 2:', response2.status, data2);
+
+        // Example: Send a request to the addlist endpoint
+        const response3 = await fetch(`${baseURL}/addlist`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Basic ${btoa(`${credentials.dev.username}:${credentials.dev.password}`)}`,
+            },
+            body: JSON.stringify([{ name: 'John Doe' }]),
+        });
+        const data3 = await response3.json(); // Assuming the response is JSON, adjust accordingly
+        console.log('Response 3:', response3.status, data3);
+
+        // Add more requests as needed
 
     } catch (error) {
         console.error('Error:', error.message);
